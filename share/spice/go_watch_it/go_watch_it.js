@@ -123,16 +123,25 @@
             return Spice.failed("go_watch_it");
         }
 
+        watchable.isFirstTile = true;
+
         Spice.add({
             id: "go_watch_it",
             name: "Watch",
-            data: watchable.availabilities,
+            data: [ watchable ].concat(watchable.availabilities),
             meta: {
                 sourceName: 'GoWatchIt',
                 sourceUrl: 'https://gowatchit.com' + (watchable.url ? watchable.url : ""),
                 primaryText: 'Providers for ' + watchable.title + " (" + watchable.year + ")"
             },
             normalize: function (item) {
+
+                console.log(item);
+
+                if (item.isFirstTile) {
+                    return true;
+                }
+
                 if (item.provider_format_id in skip_providers) {
                     return null;
                 }
@@ -204,7 +213,7 @@
             });
         }
 
-        // If the provider is in this hash, it means that they sell it 
+        // If the provider is in this hash, it means that they sell it
         // but they don't have the actual price to display.
         if (this.provider_name in purchase_providers && this.buy_line === "") {
             message = "Available for Purchase";
@@ -220,7 +229,7 @@
             message = this.suggested_line;
         }
 
-        // If the provider is in this hash, it means that they provide 
+        // If the provider is in this hash, it means that they provide
         // streaming if they don't buy or sell stuff.
         if (this.provider_name in streaming_providers && this.buy_line === "" && this.rent_line === "") {
             message = "Available for Streaming";

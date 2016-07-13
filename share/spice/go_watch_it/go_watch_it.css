@@ -2,6 +2,27 @@
     width: 13em;
 }
 
+.tile--c--n.tile--go_watch_it:first-of-type {
+    width: 40em;
+}
+
+.tile--c--n.tile--go_watch_it:first-of-type .tile__body {
+    padding: 0;
+	height: 15em;
+}
+
+.tile--go_watch_it .gwi--overview {
+    padding-left: 1em;
+	overflow: auto;
+	height: 100%;
+}
+
+.tile--go_watch_it .gwi--poster {
+	height: 99%;
+	float: left;
+}
+
+
 .tile.tile--b.tile--c--n.tile--go_watch_it {
     height: 15em;
 }
