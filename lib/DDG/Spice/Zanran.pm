@@ -6,9 +6,7 @@ use DDG::Spice;
 
 spice to => 'http://www.zanran.com/search/simple_json?callback={{callback}}&q=$1';
 
-my @triggers = share('triggers.txt')->slurp;
-
-triggers any => @triggers;
+triggers startend => 'zanran';
 
 handle query_lc => sub {
     $_ =~ s/"//g;
