@@ -8,7 +8,7 @@ spice to => 'http://www.zanran.com/search/simple_json?callback={{callback}}&q=$1
 
 triggers startend => 'zanran';
 
-handle query_lc => sub {
+handle remainder => sub {
     $_ =~ s/"//g;
     return $_ if $_;
 };
