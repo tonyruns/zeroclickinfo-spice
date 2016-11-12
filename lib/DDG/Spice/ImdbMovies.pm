@@ -13,8 +13,6 @@ use warnings;
 spice is_cached => 1;
 spice proxy_cache_valid => '200 1d'; # defaults to this automatically
 
-spice wrap_jsonp_callback => 0; # only enable for non-JSONP APIs (i.e. no &callback= parameter)
-
 # API endpoint - http://docs.duckduckhack.com/walkthroughs/forum-lookup.html#api-endpoint
 spice to => 'http://www.omdbapi.com/?t=$1&y=&plot=short&r=json';
 
