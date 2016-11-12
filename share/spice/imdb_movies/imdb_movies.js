@@ -21,10 +21,11 @@
             },
             normalize: function(item) {
                 return {
-                    // customize as needed for your chosen template
-                    title: item.title,
-                    subtitle: item.subtitle,
-                    image: item.icon
+                    title: item.Title,
+                    heading: item.Title,
+                    rating: item.imdbRating,
+                    reviewCount: item.imdbVotes,
+                    abstract: item.Plot
                 };
             },
             templates: {
