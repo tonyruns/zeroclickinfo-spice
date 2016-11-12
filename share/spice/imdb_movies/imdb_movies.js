@@ -28,7 +28,7 @@
                 };
             },
             templates: {
-                group: 'your-template-group',
+                group: 'movies',
                 options: {
                     content: Spice.imdb_movies.content,
                     moreAt: true
