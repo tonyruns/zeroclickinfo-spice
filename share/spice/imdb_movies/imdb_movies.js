@@ -13,7 +13,7 @@
             id: 'imdb_movies',
 
             // Customize these properties
-            name: 'AnswerBar title',
+            name: 'Movies',
             data: api_result,
             meta: {
                 sourceName: 'Example.com',
