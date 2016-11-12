@@ -13,7 +13,7 @@
             id: 'imdb_movies',
 
             // Customize these properties
-            name: 'Movies',
+            name: 'AnswerBar title',
             data: api_result,
             meta: {
                 sourceName: 'Example.com',
@@ -21,21 +21,18 @@
             },
             normalize: function(item) {
                 return {
-                    title: "Hi",
-                    url: 'www.google.com',
-                    points: 0,
-                    num_comments: 0
+                    title: item.Title,
+                    heading: item.Title,
+                    rating: item.imdbRating,
+                    reviewCount: item.imdbVotes,
+                    abstract: item.Plot
                 };
             },
             templates: {
-                group: 'text',
+                group: 'movies',
                 options: {
-                },
-                detail: false,
-                item_detail: false,
-                variants: {
-                    tileTitle: "3line-small",
-                    tileFooter: "3line"
+                    content: Spice.imdb_movies.content,
+                    moreAt: true
                 }
             }
         });
