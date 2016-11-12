@@ -21,18 +21,21 @@
             },
             normalize: function(item) {
                 return {
-                    title: item.Title,
-                    heading: item.Title,
-                    rating: item.imdbRating,
-                    reviewCount: item.imdbVotes,
-                    abstract: item.Plot
+                    title: "Hi",
+                    url: 'www.google.com',
+                    points: 0,
+                    num_comments: 0
                 };
             },
             templates: {
-                group: 'movies',
+                group: 'text',
                 options: {
-                    content: Spice.imdb_movies.content,
-                    moreAt: true
+                },
+                detail: false,
+                item_detail: false,
+                variants: {
+                    tileTitle: "3line-small",
+                    tileFooter: "3line"
                 }
             }
         });
