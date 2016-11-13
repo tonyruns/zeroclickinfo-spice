@@ -4,7 +4,7 @@
     env.ddg_spice_imdb_movies = function(api_result) {
         console.log(api_result);
         // Validate the response (customize for your Spice)
-        if (!api_result || api_result.Response == "False" || api_result.Error || !api_result.Search.length) {
+        if (!api_result || api_result.Response == "False" || api_result.Error || !api_result.Search.length || !api_result.Search[0]) {
             return Spice.failed('imdb_movies');
         }
 
@@ -28,22 +28,15 @@
                 itemType: 'Movies'
             },
             normalize: function(item) {
-                var movieRating = parseFloat(item.imdbRating)/2.0;
                 var movieAndYear = item.Title + " (" + item.Year + ")";
 
                 var poster = item.Poster === "N/A" ? DDG.get_asset_path("imdb_movies","no_image_available.png") : item.Poster;
                 return {
-                    title: item.Title,
+                    id: item.imdbID,
                     image: poster,
                     img: poster,
                     img_m: poster,
                     heading: movieAndYear,
-                    rating: movieRating,
-                    ratingText: item.imdbVotes,
-                    reviewCount: item.imdbVotes,
-                    abstract: item.Plot,
-                    id: item.imdbID
-                    // runTime:
                 };
             },
             templates: {
@@ -51,17 +44,24 @@
                 options: {
                     subtitle_content: Spice.imdb_movies.subtitle_content,
                     rating: true,
-                    moreAt: true
+                    moreAt: true,
+                    ratingText: false
                 }
             },
             onItemShown: function(item) {
                 $.get( "http://www.omdbapi.com/?i="+item.imdbID, function( data ) {
                     console.log(data);
+                    
+                    var movieRating = parseFloat(data.imdbRating)/2.0;
+                    
                     item.set({
                         // fallback to lo-res if call to get hi-res fails for some reason,
                         // at least lo-res is better than showing an empty white tile:
                         Director: data.Director,
-                        Actors: data.Actors
+                        Actors: data.Actors,
+                        rating: movieRating,
+                        reviewCount: data.imdbVotes,
+                        abstract: data.Plot
                     });
                 });
             }
