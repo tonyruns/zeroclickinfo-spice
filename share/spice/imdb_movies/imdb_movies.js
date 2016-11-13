@@ -30,12 +30,13 @@
             normalize: function(item) {
                 var movieRating = parseFloat(item.imdbRating)/2.0;
                 var movieAndYear = item.Title + " (" + item.Year + ")";
-
+                
+                var poster = item.Poster === "N/A" ? DDG.get_asset_path("imdb_movies","no_image_available.png") : item.Poster;
                 return {
                     title: item.Title,
-                    image: item.Poster,
-                    img: item.Poster,
-                    img_m: item.Poster,
+                    image: poster,
+                    img: poster,
+                    img_m: poster,
                     heading: movieAndYear,
                     rating: movieRating,
                     ratingText: item.imdbVotes,
@@ -47,7 +48,7 @@
             templates: {
                 group: 'movies',
                 options: {
-                    content: Spice.imdb_movies.content,
+//                     content: Spice.imdb_movies.content,
                     rating: true,
                     moreAt: true
                 }
