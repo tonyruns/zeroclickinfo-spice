@@ -26,7 +26,7 @@
                     img: item.Poster,
                     img_m: item.Poster,
                     heading: item.Title,
-                    rating: item.imdbRating,
+                    rating: (item.imdbRating/2.0),
                     ratingText: item.imdbVotes,
                     reviewCount: item.imdbVotes,
                     abstract: item.Plot
