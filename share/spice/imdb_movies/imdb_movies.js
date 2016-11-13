@@ -7,13 +7,13 @@
         if (!api_result || api_result.Response == "False" || api_result.Error || !api_result.Search.length) {
             return Spice.failed('imdb_movies');
         }
-        
+
         // Get original query.
         var script = $('[src*="/js/spice/imdb_movies/"]')[0],
             source = $(script).attr("src"),
             query = decodeURIComponent(source.match(/imdb_movies\/([^\/]+)/)[1]);
 
-        
+
         // Render the response
         Spice.add({
             id: 'imdb_movies',
@@ -30,7 +30,7 @@
             normalize: function(item) {
                 var movieRating = parseFloat(item.imdbRating)/2.0;
                 var movieAndYear = item.Title + " (" + item.Year + ")";
-                
+
                 var poster = item.Poster === "N/A" ? DDG.get_asset_path("imdb_movies","no_image_available.png") : item.Poster;
                 return {
                     title: item.Title,
@@ -48,7 +48,7 @@
             templates: {
                 group: 'movies',
                 options: {
-//                     content: Spice.imdb_movies.content,
+                    content: Spice.imdb_movies.content,
                     rating: true,
                     moreAt: true
                 }
