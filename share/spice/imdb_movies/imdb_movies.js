@@ -21,13 +21,14 @@
             },
             normalize: function(item) {
                 var movieRating = parseFloat(item.imdbRating)/2.0;
+                var movieAndYear = item.Title + " (" + item.Year + ")";
 
                 return {
                     title: item.Title,
                     image: item.Poster,
                     img: item.Poster,
                     img_m: item.Poster,
-                    heading: "item.Title",
+                    heading: movieAndYear,
                     rating: movieRating,
                     ratingText: item.imdbVotes,
                     reviewCount: item.imdbVotes,
