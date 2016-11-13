@@ -21,7 +21,7 @@
             },
             normalize: function(item) {
                 return {
-                    title: item.Title + " (" + item.Year + ")",
+                    title: item.Title,
                     image: item.Poster,
                     img: item.Poster,
                     img_m: item.Poster,
