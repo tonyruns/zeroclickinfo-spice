@@ -13,19 +13,19 @@
             id: 'imdb_movies',
 
             // Customize these properties
-            name: 'AnswerBar title',
+            name: 'Movies',
             data: api_result,
             meta: {
-                sourceName: 'Example.com',
-                sourceUrl: 'http://example.com/url/to/details/' + api_result.name
+                sourceName: 'IMDb',
+                sourceUrl: ''
             },
             normalize: function(item) {
                 return {
-                    title: item.Title,
+                    title: item.Title + " (" + item.Year + ")",
                     image: item.Poster,
                     img: item.Poster,
                     img_m: item.Poster,
-                    heading: item.Title + "(" + item.Year + ")",
+                    heading: item.Title,
                     rating: item.imdbRating,
                     ratingText: item.imdbVotes,
                     reviewCount: item.imdbVotes,
