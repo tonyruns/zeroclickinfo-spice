@@ -12,8 +12,7 @@
         var script = $('[src*="/js/spice/imdb_movies/"]')[0],
             source = $(script).attr("src"),
             query = decodeURIComponent(source.match(/imdb_movies\/([^\/]+)/)[1]);
-
-
+            
         // Render the response
         Spice.add({
             id: 'imdb_movies',
@@ -37,12 +36,14 @@
                     img: poster,
                     img_m: poster,
                     heading: movieAndYear,
+                    url: 'http://www.imdb.com/title/' + item.imdbID,
                 };
             },
             templates: {
                 group: 'movies',
                 options: {
                     subtitle_content: Spice.imdb_movies.subtitle_content,
+                    buy: Spice.imdb_movies.buy,
                     rating: true,
                     moreAt: true,
                     ratingText: false
