@@ -22,9 +22,9 @@
             normalize: function(item) {
                 return {
                     title: item.Title,
-                    image: thumb,
-                    img: thumb,
-                    img_m: thumb,
+                    image: item.Poster,
+                    img: item.Poster,
+                    img_m: item.Poster,
                     heading: item.Title,
                     rating: item.imdbRating,
                     ratingText: item.imdbVotes,
