@@ -27,7 +27,10 @@ handle remainder => sub {
 
     # Query is in $_ or @_, depending on the handle you chose...if you
     # need to do something with it before returning
-    return $_;
+    my $find = "%20";
+    my $replace = "+";
+    my $title = join( $replace, split($find, $_) );
+    return $title;
 };
 
 1;
