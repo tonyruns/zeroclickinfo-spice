@@ -23,8 +23,8 @@
                 return {
                     title: item.Title,
                     heading: item.Title,
-                    rating: parseInt(item.imdbRating),
-                    reviewCount: parseInt(item.imdbVotes),
+                    rating: 4.5,
+                    reviewCount: parseInt(item.imdbVotes) || 100,
                     abstract: item.Plot
                 };
             },
