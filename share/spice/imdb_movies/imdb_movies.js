@@ -20,13 +20,15 @@
                 sourceUrl: ''
             },
             normalize: function(item) {
+                var movieRating = parseFloat(item.imdbRating)/2.0;
+
                 return {
                     title: item.Title,
                     image: item.Poster,
                     img: item.Poster,
                     img_m: item.Poster,
                     heading: item.Title,
-                    rating: (item.imdbRating/2.0),
+                    rating: movieRating,
                     ratingText: item.imdbVotes,
                     reviewCount: item.imdbVotes,
                     abstract: item.Plot
