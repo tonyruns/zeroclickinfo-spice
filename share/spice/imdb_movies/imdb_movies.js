@@ -41,7 +41,8 @@
                     rating: movieRating,
                     ratingText: item.imdbVotes,
                     reviewCount: item.imdbVotes,
-                    abstract: item.Plot
+                    abstract: item.Plot,
+                    id: item.imdbID
                     // runTime:
                 };
             },
@@ -52,6 +53,17 @@
                     rating: true,
                     moreAt: true
                 }
+            },
+            onItemShown: function(item) {
+                $.get( "http://www.omdbapi.com/?i="+item.imdbID, function( data ) {
+                    console.log(data);
+                    item.set({
+                        // fallback to lo-res if call to get hi-res fails for some reason,
+                        // at least lo-res is better than showing an empty white tile:
+                        Director: data.Director,
+                        Actors: data.Actors
+                    });
+                });
             }
         });
     };
