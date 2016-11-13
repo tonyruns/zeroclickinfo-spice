@@ -48,7 +48,7 @@
             templates: {
                 group: 'movies',
                 options: {
-                    content: Spice.imdb_movies.content,
+                    subtitle_content: Spice.imdb_movies.subtitle_content,
                     rating: true,
                     moreAt: true
                 }
