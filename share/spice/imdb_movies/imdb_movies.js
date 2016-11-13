@@ -22,16 +22,22 @@
             normalize: function(item) {
                 return {
                     title: item.Title,
+                    image: thumb,
+                    img: thumb,
+                    img_m: thumb,
                     heading: item.Title,
-                    rating: 4.5,
-                    reviewCount: parseInt(item.imdbVotes) || 100,
+                    rating: item.imdbRating,
+                    ratingText: item.imdbVotes,
+                    reviewCount: item.imdbVotes,
                     abstract: item.Plot
+                    // runTime:
                 };
             },
             templates: {
                 group: 'movies',
                 options: {
                     content: Spice.imdb_movies.content,
+                    rating: true,
                     moreAt: true
                 }
             }
