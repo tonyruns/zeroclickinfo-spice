@@ -2,9 +2,9 @@
     "use strict";
 
     env.ddg_spice_imdb_movies = function(api_result) {
-
+        console.log(api_result);
         // Validate the response (customize for your Spice)
-        if (!api_result || api_result.error) {
+        if (!api_result || api_result.error || api_result.Response == "False" ) {
             return Spice.failed('imdb_movies');
         }
 
